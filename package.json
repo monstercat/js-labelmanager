@@ -1,0 +1,19 @@
+{
+  "name": "js-labelmanager",
+  "version": "1.0.0",
+  "description": "Label Manager API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "watch": "nodemon --watch src --ext js,ts,jsx,tsx,json --exec npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monstercat/js-labelmanager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
