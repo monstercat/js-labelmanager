@@ -1,25 +1,29 @@
-export type RequestConfig = {
-	data?: any
-	headers?: any
-	params?: any
-	onUploadProgress?: (progressEvent: any) => void
-	onDownloadProgress?: (progressEvent: any) => void
+export abstract class LabelManagerApi {
+	public constructor(protected readonly client: Client) { }
 }
 
+export type RequestConfig = {
+	data?: any;
+	headers?: any;
+	params?: any;
+	onUploadProgress?: (progressEvent: any) => void;
+	onDownloadProgress?: (progressEvent: any) => void;
+};
+
 export type Response<T> = {
-	data: T
-	status: number
-	headers: any
-}
+	data: T;
+	status: number;
+	headers: any;
+};
 
 export interface Client {
 	defaults: {
-		baseURL?: string
-	}
+		baseURL?: string;
+	};
 
-	post<T = any, R = Response<T>>(url: string, data?: any, config?: RequestConfig): Promise<R>
+	post<T = any, R = Response<T>>(url: string, data?: any, config?: RequestConfig): Promise<R>;
 
-	get<T = any, R = Response<T>>(url: string, config?: RequestConfig): Promise<R>
+	get<T = any, R = Response<T>>(url: string, config?: RequestConfig): Promise<R>;
 }
 
 export enum ArchiveMode {
@@ -35,20 +39,20 @@ export enum Visibility {
 }
 
 export type ServerLink = {
-	Id: string
-	Platform?: string
-	Url: string
-	Sort: number
-}
+	Id: string;
+	Platform?: string;
+	Url: string;
+	Sort: number;
+};
 
 export type Address = {
-	AddressLine1: string
-	AddressLine2: string
-	City: string
-	PostalCode: string
-	Province: string
-	Country: string
-}
+	AddressLine1: string;
+	AddressLine2: string;
+	City: string;
+	PostalCode: string;
+	Province: string;
+	Country: string;
+};
 
 export enum Access {
 	Owner,
@@ -58,32 +62,32 @@ export enum Access {
 }
 
 export type Paginated<T> = {
-	Count: number
-	Limit: number
-	Total: number
-	Offset: number
-	Search: string
-	Data: T[]
-	Sort: string[]
-	Fields: { [key: string]: string[] }
-}
+	Count: number;
+	Limit: number;
+	Total: number;
+	Offset: number;
+	Search: string;
+	Data: T[];
+	Sort: string[];
+	Fields: { [key: string]: string[]; };
+};
 
 export type Query = {
-	[key: string]: string | number | boolean | string[] | number[]
-}
+	[key: string]: string | number | boolean | string[] | number[];
+};
 
 export type GlobalSearchResult = {
-	Subtitle: string
-	Title: string
-	Id: string
-	Type: string
-	Public: boolean
-	Version: string
-	LabelId: string
-	LabelTitle: string
-	ReleaseType: string
-	TagusId: number
-}
+	Subtitle: string;
+	Title: string;
+	Id: string;
+	Type: string;
+	Public: boolean;
+	Version: string;
+	LabelId: string;
+	LabelTitle: string;
+	ReleaseType: string;
+	TagusId: number;
+};
 
 export enum ObjectType {
 	Release = "Release",
@@ -93,12 +97,12 @@ export enum ObjectType {
 }
 
 export type ValidationInfo = {
-	Field: string
-	Type: string
-	Message: string
-	Index: number
-	Value: any
-}
+	Field: string;
+	Type: string;
+	Message: string;
+	Index: number;
+	Value: any;
+};
 
 export enum LockStatus {
 	Draft = "Draft",
